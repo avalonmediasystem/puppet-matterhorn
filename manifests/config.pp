@@ -1,0 +1,3 @@
+class matterhorn::config {
+
+ }
