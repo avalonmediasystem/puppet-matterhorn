@@ -2,6 +2,8 @@ class matterhorn::config (
   $matterhorn_base = '/opt/matterhorn',
 ) {
 
+  File { require => Class['matterhorn::install'], }
+
   #Matterhorn/lib 
   file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-hls-1.4-SNAPSHOT.jar":
     ensure => file,
