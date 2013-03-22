@@ -10,6 +10,6 @@ class matterhorn::thirdparty {
              "SDL", 
              "zlib",]:
     ensure  => present,
-    require => Class['nulrepo'],
+    require => [Class['nulrepo'],Class['avalon::ffmpeg']],
   }
 }
