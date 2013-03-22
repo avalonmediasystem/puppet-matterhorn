@@ -5,28 +5,28 @@ class matterhorn::config (
   File { require => Class['matterhorn::install'], }
 
   #Matterhorn/lib 
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-hls-1.4-SNAPSHOT.jar":
+  file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-hls-1.4-rc7.jar":
     ensure => file,
     owner  => 'matterhorn',
     group  => 'matterhorn',
     source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-distribution-service-hls-1.4-SNAPSHOT.jar",
   }
   
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-streaming-1.4-SNAPSHOT.jar":
+  file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-streaming-1.4-rc7.jar":
     ensure => file,
     owner  => 'matterhorn',
     group  => 'matterhorn',
     source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-distribution-service-streaming-1.4-SNAPSHOT.jar",
   }
   
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-ingest-service-impl-1.4-SNAPSHOT.jar":
+  file { "$matterhorn_base/lib/matterhorn/matterhorn-ingest-service-impl-1.4-rc7.jar":
     ensure => file,
     owner  => 'matterhorn',
     group  => 'matterhorn',
     source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-ingest-service-impl-1.4-SNAPSHOT.jar",
   }
   
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-workflow-notifier-avalon-1.4-SNAPSHOT.jar":
+  file { "$matterhorn_base/lib/matterhorn/matterhorn-workflow-notifier-avalon-1.4-rc7.jar":
     ensure => file,
     owner  => 'matterhorn',
     group  => 'matterhorn',
@@ -57,8 +57,6 @@ class matterhorn::config (
     group  => 'matterhorn',
     source => "puppet:///local/matterhorn/etc/workflows/avalon-video.xml",
   }
-
-
 
 }
 
