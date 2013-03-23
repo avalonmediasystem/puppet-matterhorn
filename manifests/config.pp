@@ -24,6 +24,11 @@ class matterhorn::config (
     group   => 'matterhorn',
   }
 
+  file { ['/var/log/matterhorn','/var/matterhorn']:
+    ensure  => directory,
+    owner   => 'matterhorn',
+    group   => 'matterhorn',
+  }
 
   #Matterhorn/lib 
   file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-hls-1.4-rc7.jar":

@@ -91,7 +91,7 @@ case "$1" in
 # check if felix is already running
     MATTERHORN_PID=`ps aux | awk '/felix.jar/ && !/awk/ {print $2}'`
     if [ ! -z "$MATTERHORN_PID" ]; then
-      echo "OpenCast Matterhorn is already running"
+      echo "matterhorn is already running"
       exit 1
     fi
 
@@ -114,22 +114,18 @@ case "$1" in
   stop)
     echo -n "Stopping Matterhorn: "
     MATTERHORN_PID=`ps aux | awk '/felix.jar/ && !/awk/ {print $2}'`
-    if [ -z "$MATTERHORN_PID" ]; then
-      echo "Matterhorn already stopped"
-      exit 1
-    fi
-
-    kill $MATTERHORN_PID
-
-    sleep 7
-
-    MATTERHORN_PID=`ps aux | awk '/felix.jar/ && !/awk/ {print $2}'`
     if [ ! -z $MATTERHORN_PID ]; then
-      echo "Hard killing since felix ($MATTERHORN_PID) seems unresponsive to regular kill"
+      kill $MATTERHORN_PID
 
-      kill -9 $MATTERHORN_PID
+      sleep 7
+
+      MATTERHORN_PID=`ps aux | awk '/felix.jar/ && !/awk/ {print $2}'`
+      if [ ! -z $MATTERHORN_PID ]; then
+        echo "Hard killing since felix ($MATTERHORN_PID) seems unresponsive to regular kill"
+
+        kill -9 $MATTERHORN_PID
+      fi
     fi
-
     echo "done."
     ;;
   restart)
@@ -139,10 +135,10 @@ case "$1" in
   status)
     MATTERHORN_PID=`ps aux | awk '/felix.jar/ && !/awk/ {print $2}'`
     if [ -z "$MATTERHORN_PID" ]; then
-      echo "Matterhorn is not running"
+      echo "matterhorn is not running"
       exit 0
     else
-      echo "OpenCast Matterhorn is running with PID $MATTERHORN_PID"
+      echo "matterhorn is running with PID $MATTERHORN_PID"
       exit 0
     fi
     ;;
