@@ -1,3 +1,3 @@
 class matterhorn {
-  include matterhorn::thirdparty, matterhorn::install, matterhorn::config, avalon::ffmpeg
+  include matterhorn::thirdparty, matterhorn::install, matterhorn::config, avalon::ffmpeg, matterhorn::service
 }
