@@ -76,7 +76,11 @@ org.opencastproject.security.demo.loadusers=true
 #org.opencastproject.streaming.url=rtmp://localhost/matterhorn-engage
 
 # The directory where the matterhorn streaming app for Red5 stores the streams
-#org.opencastproject.streaming.directory=${org.opencastproject.storage.dir}/streams
+org.opencastproject.streaming.directory=<%= rtmp_dir %>
+
+# The directory where the HLS .m3u8 and .ts files are stored
+# This is needed if using Red5 since it doesn't have HLS capability
+org.opencastproject.hls.directory=<%= hls_dir %>
 
 # The directory to store media, metadata, and attachments for download from the engage tool
 org.opencastproject.download.directory=${org.opencastproject.storage.dir}/downloads
@@ -184,3 +188,5 @@ org.opencastproject.export.gstreamerpath=/bin/gst-launch
 
 # Email address of the server's admin.
 org.opencastproject.admin.email=<%=matterhorn_admin%>
+
+org.avalonmediasystem.avalon.url=http://localhost/

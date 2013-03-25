@@ -1,8 +1,10 @@
 class matterhorn::config (
 
-  $matterhorn_user = 'matterhorn',
-  $matterhorn_base = '/opt/matterhorn',
+  $matterhorn_user  = 'matterhorn',
+  $matterhorn_base  = '/opt/matterhorn',
   $matterhorn_admin = 'library@northwestern.edu',
+  $rtmp_dir         = '/var/avalon/rtmp_streams',
+  $hls_dir          = '/var/avalon/hls_streams',
 
 ) {
 
