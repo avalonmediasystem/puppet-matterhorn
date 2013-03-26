@@ -4,6 +4,12 @@ class matterhorn::install {
     ensure  => present,
     require => [Class['nulrepo'],Class['avalon::ffmpeg']],
   }
+
+  user { 'matterhorn':
+    ensure     => present,
+    require    => Package['opencast-matterhorn14']
+  }
+
 }
 
 
