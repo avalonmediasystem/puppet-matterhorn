@@ -33,46 +33,11 @@ class matterhorn::config (
   }
 
   #Matterhorn/lib 
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-hls-1.4-rc7.jar":
-    ensure => file,
-    owner  => 'matterhorn',
-    group  => 'matterhorn',
-    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-distribution-service-hls-1.4-SNAPSHOT.jar",
-  }
-  
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-distribution-service-streaming-1.4-rc7.jar":
-    ensure => file,
-    owner  => 'matterhorn',
-    group  => 'matterhorn',
-    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-distribution-service-streaming-1.4-SNAPSHOT.jar",
-  }
-  
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-ingest-service-impl-1.4-rc7.jar":
-    ensure => file,
-    owner  => 'matterhorn',
-    group  => 'matterhorn',
-    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-ingest-service-impl-1.4-SNAPSHOT.jar",
-  }
-  
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-workflow-notifier-avalon-1.4-rc7.jar":
-    ensure => file,
-    owner  => 'matterhorn',
-    group  => 'matterhorn',
-    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-workflow-notifier-avalon-1.4-SNAPSHOT.jar",
-  }
-
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-workspace-api-1.4-rc7.jar":
-    ensure => file,
-    owner  => 'matterhorn',
-    group  => 'matterhorn',
-    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-workspace-api-1.4-SNAPSHOT.jar",
-  }
-
-  file { "$matterhorn_base/lib/matterhorn/matterhorn-workspace-impl-1.4-rc7.jar":
-    ensure => file,
-    owner  => 'matterhorn',
-    group  => 'matterhorn',
-    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-workspace-impl-1.4-SNAPSHOT.jar",
+  file { "$matterhorn_base/lib/matterhorn":
+    source  => "puppet:///local/matterhorn/lib/matterhorn",
+    recurse => true,
+    purge   => true,
+    notify  => Service['matterhorn'],
   }
 
   #Matterhorn/etc/encoding
