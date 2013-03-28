@@ -61,6 +61,20 @@ class matterhorn::config (
     source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-workflow-notifier-avalon-1.4-SNAPSHOT.jar",
   }
 
+  file { "$matterhorn_base/lib/matterhorn/matterhorn-workspace-api-1.4-rc7.jar":
+    ensure => file,
+    owner  => 'matterhorn',
+    group  => 'matterhorn',
+    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-workspace-api-1.4-SNAPSHOT.jar",
+  }
+
+  file { "$matterhorn_base/lib/matterhorn/matterhorn-workspace-impl-1.4-rc7.jar":
+    ensure => file,
+    owner  => 'matterhorn',
+    group  => 'matterhorn',
+    source => "puppet:///local/matterhorn/lib/matterhorn/matterhorn-workspace-impl-1.4-SNAPSHOT.jar",
+  }
+
   #Matterhorn/etc/encoding
 
   file { "$matterhorn_base/etc/encoding/avalon.properties":
