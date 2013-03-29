@@ -1,4 +1,6 @@
-class matterhorn::install {
+class matterhorn::install(
+	$treeish = "1.4.x"
+) {
 	include staging
 
 	group { 'matterhorn':
@@ -13,7 +15,7 @@ class matterhorn::install {
 
   staging::file { 'matterhorn-1.4.tar.gz':
   	subdir    => 'matterhorn',
-  	source		=> 'https://github.com/avalonmediasystem/avalon-felix/archive/1.4.x.tar.gz'
+  	source		=> "https://github.com/avalonmediasystem/avalon-felix/archive/${treeish}.tar.gz"
 	}
 
 	file { '/usr/local/matterhorn':
