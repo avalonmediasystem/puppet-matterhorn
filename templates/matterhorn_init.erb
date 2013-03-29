@@ -15,11 +15,11 @@ set -e
 ##
 # These variables are set in the configuration scripts.
 ##
-#eg:  /opt/matterhorn
-MATTERHORN=${MATTERHORN_HOME:-/opt/matterhorn}
-#eg:  /opt/matterhorn/felix, or $MATTERHORN
+#eg:  <%=matterhorn_base%>
+MATTERHORN=${MATTERHORN_HOME:-<%=matterhorn_base%>}
+#eg:  <%=matterhorn_base%>/felix, or $MATTERHORN
 FELIX_HOME=${FELIX_HOME:-$MATTERHORN}
-#eg:  /opt/matterhorn/capture-agent, or $MATTERHORN/capture-agent
+#eg:  <%=matterhorn_base%>/capture-agent, or $MATTERHORN/capture-agent
 CA=${CA_DIR:-$MATTERHORN/capture-agent}
 #eg:  Commonly opencast or matterhorn.  Can also be your normal user if you are testing.
 MATTERHORN_USER=<%=matterhorn_user%>
@@ -27,7 +27,7 @@ M2_REPOSITORY=${M2_REPO:-${MATTERHORN}/mvn2}
 #Enable this if this machine is a CA.  This will enable capture device autoconfiguration.
 IS_CA=false
 
-LOGDIR=/var/log/matterhorn
+LOGDIR="$FELIX_HOME/logs"
 
 PATH=$PATH:$FELIX
 
@@ -46,7 +46,7 @@ DEBUG_SUSPEND="n"
 MAVEN_ARG="-DM2_REPO=$M2_REPOSITORY"
 
 FELIX_CONFIG_DIR="$FELIX_HOME/etc"
-FELIX_WORK_DIR="/var/matterhorn/work"
+FELIX_WORK_DIR="$FELIX_HOME/work"
 
 FELIX="-Dfelix.home=$FELIX_HOME"
 FELIX_WORK="-Dfelix.work=$FELIX_WORK_DIR"

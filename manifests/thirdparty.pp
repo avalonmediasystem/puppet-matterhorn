@@ -1,6 +1,7 @@
 class matterhorn::thirdparty {
   include epel
   include nulrepo
+  include mediainfo
 
   package { ["jam", 
              "libjpeg-turbo", 
@@ -8,7 +9,9 @@ class matterhorn::thirdparty {
              "libtiff",
              "scons", 
              "SDL", 
-             "zlib",]:
+             "zlib",
+             "qt_sbtl_embedder",
+             "tesseract",]:
     ensure  => present,
     require => [Class['nulrepo'],Class['avalon::ffmpeg']],
   }
