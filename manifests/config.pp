@@ -5,6 +5,7 @@ class matterhorn::config (
   $matterhorn_admin = 'library@northwestern.edu',
   $rtmp_dir         = '/var/avalon/rtmp_streams',
   $hls_dir          = '/var/avalon/hls_streams',
+  $http_port        = '8080',
 
 ) {
 
@@ -25,37 +26,6 @@ class matterhorn::config (
     owner   => 'matterhorn',
     group   => 'matterhorn',
   }
-
-#  file { ['/var/log/matterhorn','/var/matterhorn']:
-#    ensure  => directory,
-#    owner   => 'matterhorn',
-#    group   => 'matterhorn',
-#  }
-
-#  #Matterhorn/etc/encoding
-#
-#  file { "$matterhorn_base/etc/encoding/avalon.properties":
-#    ensure => file,
-#    owner  => 'matterhorn',
-#    group  => 'matterhorn',
-#    source => "puppet:///local/matterhorn/etc/encoding/avalon.properties",
-#  }
-#  
-#  #Matterhorn/etc/workflows
-#
-#  file { "$matterhorn_base/etc/workflows/avalon-audio.xml":
-#    ensure => file,
-#    owner  => 'matterhorn',
-#    group  => 'matterhorn',
-#    source => "puppet:///local/matterhorn/etc/workflows/avalon-audio.xml",
-#  }
-#  
-#  file { "$matterhorn_base/etc/workflows/avalon-video.xml":
-#    ensure => file,
-#    owner  => 'matterhorn',
-#    group  => 'matterhorn',
-#    source => "puppet:///local/matterhorn/etc/workflows/avalon-video.xml",
-#  }
 
 }
 
