@@ -13,6 +13,6 @@ class matterhorn::thirdparty {
              "qt_sbtl_embedder",
              "tesseract",]:
     ensure  => present,
-    require => [Class['nulrepo'],Class['avalon::ffmpeg']],
+    require => [Class['nulrepo'],Class['ffmpeg']],
   }
 }
