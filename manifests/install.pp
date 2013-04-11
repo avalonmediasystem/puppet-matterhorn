@@ -10,6 +10,8 @@ class matterhorn::install(
   user { 'matterhorn':
     ensure    => present,
     gid       => 'matterhorn',
+    system    => true,
+    shell     => '/sbin/nologin',
     require 	=> Group['matterhorn']
   }
 
