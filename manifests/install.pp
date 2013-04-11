@@ -11,7 +11,6 @@ class matterhorn::install(
     ensure    => present,
     gid       => 'matterhorn',
     system    => true,
-    shell     => '/sbin/nologin',
     require 	=> Group['matterhorn']
   }
 
