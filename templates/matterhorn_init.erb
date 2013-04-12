@@ -108,7 +108,7 @@ case "$1" in
 
 # starting felix
 
-    su -c "java -Dgosh.args='--noshutdown -c noop=true' $DEBUG_OPTS $FELIX_OPTS $GRAPHICS_OPTS $TEMP_OPTS $MAVEN_ARG $JAVA_OPTS $PAX_CONFMAN_OPTS $LOG_OPTS $JMX_OPTS -jar $FELIX_HOME/bin/felix.jar $FELIX_CACHE 2>&1 > /dev/null &" $MATTERHORN_USER
+    runuser $MATTERHORN_USER -c "java -Dgosh.args='--noshutdown -c noop=true' $DEBUG_OPTS $FELIX_OPTS $GRAPHICS_OPTS $TEMP_OPTS $MAVEN_ARG $JAVA_OPTS $PAX_CONFMAN_OPTS $LOG_OPTS $JMX_OPTS -jar $FELIX_HOME/bin/felix.jar $FELIX_CACHE 2>&1 > /dev/null &"
     echo "done."
     ;;
   stop)
