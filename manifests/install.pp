@@ -1,5 +1,5 @@
 class matterhorn::install(
-  $treeish = "release/1.0.0"
+  $treeish = "release/1.0.0",
   $tarfile = "matterhorn-1.4.tar.gz"
 ) {
   include staging
