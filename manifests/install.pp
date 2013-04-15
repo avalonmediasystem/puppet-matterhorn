@@ -16,7 +16,7 @@ class matterhorn::install(
     require   => Group['matterhorn']
   }
 
-  staging::file { '${tarfile}':
+  staging::file { $tarfile:
     subdir    => 'matterhorn',
     source    => "https://github.com/avalonmediasystem/avalon-felix/archive/${treeish}.tar.gz"
   }
@@ -34,7 +34,7 @@ class matterhorn::install(
     creates   => "/usr/local/matterhorn/lib",
     user      => "matterhorn",
     group     => "matterhorn",
-    require   => [File['/usr/local/matterhorn'],User['matterhorn'],Staging::File['${tarfile}']]
+    require   => [File['/usr/local/matterhorn'],User['matterhorn'],Staging::File[$tarfile]]
   }
 
 }
