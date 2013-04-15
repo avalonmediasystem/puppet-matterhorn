@@ -1,5 +1,6 @@
 class matterhorn::install(
-  $treeish = "1.4.x"
+  $treeish = "release/1.0.0"
+  $tarfile = "matterhorn-1.4.tar.gz"
 ) {
   include staging
 
@@ -15,7 +16,7 @@ class matterhorn::install(
     require   => Group['matterhorn']
   }
 
-  staging::file { 'matterhorn-1.4.tar.gz':
+  staging::file { '${tarfile}':
     subdir    => 'matterhorn',
     source    => "https://github.com/avalonmediasystem/avalon-felix/archive/${treeish}.tar.gz"
   }
@@ -28,12 +29,12 @@ class matterhorn::install(
   }
   
   exec { 'extract-matterhorn':
-    command   => "/bin/tar xzf ${staging::path}/matterhorn/matterhorn-1.4.tar.gz --strip-components 1",
+    command   => "/bin/tar xzf ${staging::path}/matterhorn/${tarfile} --strip-components 1",
     cwd       => "/usr/local/matterhorn",
     creates   => "/usr/local/matterhorn/lib",
     user      => "matterhorn",
     group     => "matterhorn",
-    require   => [File['/usr/local/matterhorn'],User['matterhorn'],Staging::File['matterhorn-1.4.tar.gz']]
+    require   => [File['/usr/local/matterhorn'],User['matterhorn'],Staging::File['${tarfile}']]
   }
 
 }
