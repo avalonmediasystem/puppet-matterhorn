@@ -13,7 +13,7 @@
 # ---  END LICENSE_HEADER BLOCK  ---
 
 class matterhorn::install(
-  $treeish = "release/1.0.0",
+  $treeish = "1.4.x",
   $tarfile = "matterhorn-1.4.tar.gz"
 ) {
   include staging
