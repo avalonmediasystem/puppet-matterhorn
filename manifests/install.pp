@@ -32,7 +32,7 @@ class matterhorn::install(
 
   staging::file { $tarfile:
     subdir    => 'matterhorn',
-    source    => "https://nodeload.github.com/avalonmediasystem/avalon-felix/tar.gz/$treeish"
+    source    => "https://codeload.github.com/avalonmediasystem/avalon-felix/tar.gz/$treeish"
   }
 
   file { '/usr/local/matterhorn':
