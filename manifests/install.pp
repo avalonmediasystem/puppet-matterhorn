@@ -17,6 +17,9 @@ class matterhorn::install(
   $tarfile = "matterhorn-1.4.tar.gz"
 ) {
   include staging
+  if defined(jdk) {
+    include jdk
+  }
 
   group { 'matterhorn':
     ensure    => present,
