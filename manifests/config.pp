@@ -20,6 +20,7 @@ class matterhorn::config (
   $rtmp_dir         = "${avalon::info::root_dir}/rtmp_streams",
   $hls_dir          = "${avalon::info::root_dir}/hls_streams",
   $http_port        = '8080',
+  $static_hls       = true,
 
 ) {
 
@@ -37,6 +38,18 @@ class matterhorn::config (
   file { "$matterhorn_base/etc/config.properties":
     ensure  => present,
     content => template("matterhorn/config.properties.erb"),
+    owner   => 'matterhorn',
+    group   => 'matterhorn',
+  }
+  file { "$matterhorn_base/workflows/avalon-audio.xml":
+    ensure  => present,
+    content => template("matterhorn/avalon-audio.erb"),
+    owner   => 'matterhorn',
+    group   => 'matterhorn',
+  }
+  file { "$matterhorn_base/workflows/avalon-video.xml":
+    ensure  => present,
+    content => template("matterhorn/avalon-video.erb"),
     owner   => 'matterhorn',
     group   => 'matterhorn',
   }

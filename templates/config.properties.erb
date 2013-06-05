@@ -73,16 +73,18 @@ org.opencastproject.security.demo.loadusers=true
 # ${org.opencastproject.server.url} can not be used, because the streaming server does not use the HTTP protocol.
 # Streaming is not included in the default workflow, since the Red5 streaming server is a 3rd party component that
 # requires separate installation.
-org.opencastproject.streaming.url=rtmp://localhost/avalon
-
-org.opencastproject.hls.url=http://localhost/streams
+org.opencastproject.streaming.url=<%=scope.lookupvar('avalon::info::rtmp_url')%>
 
 # The directory where the matterhorn streaming app for Red5 stores the streams
 org.opencastproject.streaming.directory=<%= rtmp_dir %>
 
+<% if static_hls %>
+org.opencastproject.hls.url=http://localhost/streams
+
 # The directory where the HLS .m3u8 and .ts files are stored
 # This is needed if using Red5 since it doesn't have HLS capability
 org.opencastproject.hls.directory=<%= hls_dir %>
+<% end %>
 
 # The directory to store media, metadata, and attachments for download from the engage tool
 org.opencastproject.download.directory=${org.opencastproject.storage.dir}/downloads
