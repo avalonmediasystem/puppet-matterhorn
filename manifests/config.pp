@@ -41,13 +41,13 @@ class matterhorn::config (
     owner   => 'matterhorn',
     group   => 'matterhorn',
   }
-  file { "$matterhorn_base/workflows/avalon-audio.xml":
+  file { "$matterhorn_base/etc/workflows/avalon-audio.xml":
     ensure  => present,
     content => template("matterhorn/avalon-audio.xml.erb"),
     owner   => 'matterhorn',
     group   => 'matterhorn',
   }
-  file { "$matterhorn_base/workflows/avalon-video.xml":
+  file { "$matterhorn_base/etc/workflows/avalon-video.xml":
     ensure  => present,
     content => template("matterhorn/avalon-video.xml.erb"),
     owner   => 'matterhorn',
