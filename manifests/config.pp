@@ -22,9 +22,9 @@ class matterhorn::config (
   $http_port        = '8080',
   $static_hls       = true,
   $solr_url         = "${avalon::info::db_url}/solr/mhorn",
-  $db_host          = ${avalon::mysql::params::host},
-  $db_user          = ${avalon::mysql::params::user},
-  $db_password      = ${avalon::mysql::params::password},
+  $db_host          = $avalon::info::db_address,
+  $db_user          = $avalon::mysql::params::user,
+  $db_password      = $avalon::mysql::params::password,
   $db_name          = 'matterhorn'
   
 ) {
