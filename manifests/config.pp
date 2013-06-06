@@ -21,12 +21,16 @@ class matterhorn::config (
   $hls_dir          = "${avalon::info::root_dir}/hls_streams",
   $http_port        = '8080',
   $static_hls       = true,
-
+  $solr_url         = "${avalon::info::db_url}/solr/mhorn",
+  $db_host          = ${avalon::mysql::params::host},
+  $db_user          = ${avalon::mysql::params::user},
+  $db_password      = ${avalon::mysql::params::password},
+  $db_name          = 'matterhorn'
+  
 ) {
-
   File { require => Class['matterhorn::install'], }
   
-  #init script
+
   file { '/etc/rc.d/init.d/matterhorn':
     ensure  => present,
     owner   => 'root',
@@ -34,19 +38,21 @@ class matterhorn::config (
     mode    => 0755,
     content => template("matterhorn/matterhorn_init.erb"),
   }
-  #config.properties
+
   file { "$matterhorn_base/etc/config.properties":
     ensure  => present,
     content => template("matterhorn/config.properties.erb"),
     owner   => 'matterhorn',
     group   => 'matterhorn',
   }
+
   file { "$matterhorn_base/etc/workflows/avalon-audio.xml":
     ensure  => present,
     content => template("matterhorn/avalon-audio.xml.erb"),
     owner   => 'matterhorn',
     group   => 'matterhorn',
   }
+
   file { "$matterhorn_base/etc/workflows/avalon-video.xml":
     ensure  => present,
     content => template("matterhorn/avalon-video.xml.erb"),
