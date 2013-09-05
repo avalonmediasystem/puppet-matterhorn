@@ -39,6 +39,7 @@ class matterhorn::config (
     content => template("matterhorn/config.properties.erb"),
     owner   => 'matterhorn',
     group   => 'matterhorn',
+    replace => false,
   }
 
 }
