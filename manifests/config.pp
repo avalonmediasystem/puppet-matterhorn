@@ -22,6 +22,7 @@ class matterhorn::config (
   $http_port        = '8080',
 
 ) {
+  include firewall
 
   File { require => Class['matterhorn::install'], }
   
@@ -42,4 +43,9 @@ class matterhorn::config (
     replace => false,
   }
 
+  firewall { '110 allow matterhorn access':
+    port   => $http_port,
+    proto  => tcp,
+    action => accept,
+  }
 }
