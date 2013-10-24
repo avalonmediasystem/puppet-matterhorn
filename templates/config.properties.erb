@@ -5,7 +5,7 @@
 # The HTTP server port.  If you set this to port 80, you need to run Matterhorn as root. Alternatively, if you want
 # users to access Matterhorn on port 80 but do not want to run as root, keep the default port (8080) and use an Apache
 # HTTPD server with mod_proxy to forward port 80 traffic to Matterhorn on port 8080.
-org.osgi.service.http.port=<%=http_port%>
+org.osgi.service.http.port=<%=@http_port%>
 
 # Whether Matterhorn itself should handle HTTPS traffic.  Even if you set this to 'false',you can still use an Apache
 # HTTPD server as a proxy to handle SSL)
@@ -16,7 +16,7 @@ org.osgi.service.http.secure.enabled=false
 
 # The public URL of this matterhorn installation.  If this felix installation is proxied behind an Apache HTTPD
 # reverse proxy, this URL should point to the proxy's port (usually 80).
-org.opencastproject.server.url=<%=matterhorn_public_url%>
+org.opencastproject.server.url=<%=@matterhorn_public_url%>
 
 # The url of the remote service registry.  This is used in cases where there is no direct connection to the service
 # registry database such as capture agens running in protected environments. This is typically true for capture agents
@@ -78,11 +78,11 @@ org.opencastproject.streaming.url=rtmp://localhost/avalon
 org.opencastproject.hls.url=http://localhost/streams
 
 # The directory where the matterhorn streaming app for Red5 stores the streams
-org.opencastproject.streaming.directory=<%= rtmp_dir %>
+org.opencastproject.streaming.directory=<%= @rtmp_dir %>
 
 # The directory where the HLS .m3u8 and .ts files are stored
 # This is needed if using Red5 since it doesn't have HLS capability
-org.opencastproject.hls.directory=<%= hls_dir %>
+org.opencastproject.hls.directory=<%= @hls_dir %>
 
 # The directory to store media, metadata, and attachments for download from the engage tool
 org.opencastproject.download.directory=${org.opencastproject.storage.dir}/downloads
@@ -189,6 +189,6 @@ org.opencastproject.textanalyzer.tesseract.path=/usr/bin/tesseract
 org.opencastproject.export.gstreamerpath=/bin/gst-launch
 
 # Email address of the server's admin.
-org.opencastproject.admin.email=<%=matterhorn_admin%>
+org.opencastproject.admin.email=<%=@matterhorn_admin%>
 
 org.avalonmediasystem.avalon.url=http://localhost/
