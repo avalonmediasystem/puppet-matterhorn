@@ -15,14 +15,14 @@ set -e
 ##
 # These variables are set in the configuration scripts.
 ##
-#eg:  <%=matterhorn_base%>
-MATTERHORN=${MATTERHORN_HOME:-<%=matterhorn_base%>}
-#eg:  <%=matterhorn_base%>/felix, or $MATTERHORN
+#eg:  <%=@matterhorn_base%>
+MATTERHORN=${MATTERHORN_HOME:-<%=@matterhorn_base%>}
+#eg:  <%=@matterhorn_base%>/felix, or $MATTERHORN
 FELIX_HOME=${FELIX_HOME:-$MATTERHORN}
-#eg:  <%=matterhorn_base%>/capture-agent, or $MATTERHORN/capture-agent
+#eg:  <%=@matterhorn_base%>/capture-agent, or $MATTERHORN/capture-agent
 CA=${CA_DIR:-$MATTERHORN/capture-agent}
 #eg:  Commonly opencast or matterhorn.  Can also be your normal user if you are testing.
-MATTERHORN_USER=<%=matterhorn_user%>
+MATTERHORN_USER=<%=@matterhorn_user%>
 M2_REPOSITORY=${M2_REPO:-${MATTERHORN}/mvn2}
 #Enable this if this machine is a CA.  This will enable capture device autoconfiguration.
 IS_CA=false
