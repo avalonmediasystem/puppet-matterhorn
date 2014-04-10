@@ -17,6 +17,7 @@ class matterhorn::config (
   $matterhorn_user  = 'matterhorn',
   $matterhorn_base  = '/usr/local/matterhorn',
   $matterhorn_admin = 'library@northwestern.edu',
+  $public_url       = $matterhorn_public_url,
   $rtmp_dir         = '/var/avalon/rtmp_streams',
   $hls_dir          = '/var/avalon/hls_streams',
   $http_port        = '8080',
