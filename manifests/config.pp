@@ -35,6 +35,16 @@ class matterhorn::config (
     mode    => 0755,
     content => template("matterhorn/matterhorn_init.erb"),
   }
+
+  #nproc configuration 
+  file { '/etc/security/limits.d/99-matterhorn.conf':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => 0644,
+    content => template("matterhorn/99-matterhorn.conf"),
+  }
+
   #config.properties
   file { "$matterhorn_base/etc/config.properties":
     ensure  => present,
