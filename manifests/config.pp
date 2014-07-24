@@ -21,6 +21,7 @@ class matterhorn::config (
   $rtmp_dir         = '/var/avalon/rtmp_streams',
   $hls_dir          = '/var/avalon/hls_streams',
   $http_port        = '8080',
+  $nproc_limit      = '4096'
 
 ) {
   include firewall
@@ -35,6 +36,16 @@ class matterhorn::config (
     mode    => 0755,
     content => template("matterhorn/matterhorn_init.erb"),
   }
+
+  #nproc configuration 
+  file { '/etc/security/limits.d/99-matterhorn.conf':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => 0644,
+    content => template("matterhorn/99-matterhorn.conf.erb"),
+  }
+
   #config.properties
   file { "$matterhorn_base/etc/config.properties":
     ensure  => present,
