@@ -17,8 +17,7 @@ class matterhorn::thirdparty {
   include nulrepo
   include mediainfo
 
-  package { ["jam", 
-             "libjpeg-turbo", 
+  package {[ "libjpeg-turbo", 
              "libpng", 
              "libtiff",
              "scons", 
